@@ -1,0 +1,23 @@
+name: Gemini Web2API Go
+version: "1.0.0"
+slug: gemini_web2api_go
+description: Gemini web API bridge with admin ingress
+url: https://github.com/zexadev/gemini-web2api-go
+arch:
+  - amd64
+startup: application
+boot: auto
+init: false
+ingress: true
+ingress_port: 8099
+panel_icon: mdi:creation
+panel_title: Gemini
+ports:
+  8083/tcp: null
+ports_description:
+  8083/tcp: Optional LAN API access
+options:
+  admin_token: ""
+schema:
+  admin_token: password
+watchdog: http://[HOST]:8083/
