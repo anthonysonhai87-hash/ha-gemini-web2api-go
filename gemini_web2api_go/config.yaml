@@ -1,5 +1,5 @@
 name: Gemini Web2API Go
-version: "1.0.0"
+version: "1.0.1"
 slug: gemini_web2api_go
 description: Gemini web API bridge with admin ingress
 url: https://github.com/zexadev/gemini-web2api-go
