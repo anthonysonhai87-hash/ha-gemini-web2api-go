@@ -12,25 +12,7 @@ MCP_SECRET="$(jq -r '.mcp_secret // ""' /data/options.json)"
 mkdir -p /tmp/mcp-conf
 rm -f /tmp/mcp-conf/default.conf
 if [ -n "$MCP_KEY" ]; then
-  if printf '%s' "$MCP_KEY" | grep -Eq '^sk-gemini-[A-Za-z0-9_-]+
-gemini-web2api --port 8083 --db /data/gemini.db &
-PID=$!
-nginx -g 'daemon off;' &
-PROXY=$!
-trap 'kill "$PID" "$PROXY" 2>/dev/null || true; exit 0' TERM INT
-while kill -0 "$PID" 2>/dev/null && kill -0 "$PROXY" 2>/dev/null; do sleep 2; done
-kill "$PID" "$PROXY" 2>/dev/null || true
-exit 1
- && printf '%s' "$MCP_SECRET" | grep -Eq '^[A-Za-z0-9_-]{32,128}
-gemini-web2api --port 8083 --db /data/gemini.db &
-PID=$!
-nginx -g 'daemon off;' &
-PROXY=$!
-trap 'kill "$PID" "$PROXY" 2>/dev/null || true; exit 0' TERM INT
-while kill -0 "$PID" 2>/dev/null && kill -0 "$PROXY" 2>/dev/null; do sleep 2; done
-kill "$PID" "$PROXY" 2>/dev/null || true
-exit 1
-; then
+  if printf '%s' "$MCP_KEY" | grep -Eq '^sk-gemini-[A-Za-z0-9_-]+$' && printf '%s' "$MCP_SECRET" | grep -Eq '^[A-Za-z0-9_-]{32,128}$'; then
     cat > /tmp/mcp-conf/default.conf <<EOF
 server {
   listen 8084;
