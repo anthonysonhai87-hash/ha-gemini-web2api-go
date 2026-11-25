@@ -1,3 +1,6 @@
+# 1.0.3
+- Fix malformed startup shell script.
+
 # 1.0.2
 - Optional internal secret-path MCP reverse proxy with bearer authentication upstream.
 - No host port publication for MCP; existing API and database unchanged.
