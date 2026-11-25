@@ -1,5 +1,5 @@
 name: Gemini Web2API Go
-version: "1.0.1"
+version: "1.0.2"
 slug: gemini_web2api_go
 description: Gemini web API bridge with admin ingress
 url: https://github.com/zexadev/gemini-web2api-go
@@ -18,6 +18,10 @@ ports_description:
   8083/tcp: Optional LAN API access
 options:
   admin_token: ""
+  mcp_api_key: ""
+  mcp_secret: ""
 schema:
   admin_token: password
+  mcp_api_key: password
+  mcp_secret: password
 watchdog: http://[HOST]:8083/
