@@ -1,3 +1,7 @@
+# 1.0.4
+- Restore v1.0.1 wrapper behavior and remove internal MCP proxy.
+- Preserve database path and LAN API configuration.
+
 # 1.0.3
 - Fix malformed startup shell script.
 
